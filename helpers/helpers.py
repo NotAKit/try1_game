@@ -1,5 +1,5 @@
-WIDTH = 360
-HEIGHT = 480
+WIDTH = 840
+HEIGHT = 650
 FPS = 30
 
 # Задаем цвета

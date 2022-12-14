@@ -1,10 +1,15 @@
 from screening.player import Player
-from helpers.helpers import *
+# from helpers.helpers import *
 from screening.player import *
-# Pygame шаблон - скелет для нового проекта Pygame
+
 import pygame
 import random
 from screening.enemies import Enemy
+from os import path
+
+img_dir = path.join(path.dirname(__file__), 'img')
+# player_img = pygame.image.load(path.join(img_dir, "player.png")).convert()
+
 
 
 
@@ -14,6 +19,11 @@ pygame.mixer.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("My Game")
 clock = pygame.time.Clock()
+
+# Загрузка всей игровой графики
+background = pygame.image.load(path.join(img_dir, 'background-1_0.png')).convert()
+background_rect = background.get_rect()
+
 
 all_sprites = pygame.sprite.Group()
 enemies = pygame.sprite.Group()
@@ -45,6 +55,7 @@ while running:
         player_health -= 1
     # Рендеринг
     screen.fill(BLACK)
+    screen.blit(background, background_rect)
     all_sprites.draw(screen)
     # После отрисовки всего, переворачиваем экран
     pygame.display.flip()

@@ -1,5 +1,9 @@
 from helpers.helpers import *
 import pygame
+from os import path
+
+img_dir = path.join('img')
+player_img = pygame.image.load(path.join(img_dir, "player.png"))
 
 
 # Здоровье игрока (убрать потом отсюда)
@@ -8,11 +12,10 @@ player_health = 5
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.Surface((10, 10))
-        self.image.fill(GREEN)
+        self.image = pygame.transform.scale(player_img, (80, 110))
         self.rect = self.image.get_rect()
         self.rect.centerx = WIDTH / 2
-        self.rect.centery = HEIGHT / 2
+        self.rect.bottom = HEIGHT - 10
         self.speedx = 0
         self.speedy = 0
 
