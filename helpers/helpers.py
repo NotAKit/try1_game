@@ -1,5 +1,5 @@
-WIDTH = 1080
-HEIGHT = 720
+WIDTH = 360
+HEIGHT = 480
 FPS = 30
 
 # Задаем цвета
