@@ -1,9 +1,13 @@
 from screening.player import Player
 from helpers.helpers import *
+from screening.player import *
 # Pygame шаблон - скелет для нового проекта Pygame
 import pygame
 import random
 from screening.enemies import Enemy
+
+
+
 # Создаем игру и окно
 pygame.init()
 pygame.mixer.init()
@@ -31,10 +35,14 @@ while running:
         # check for closing window
         if event.type == pygame.QUIT:
             running = False
-
-
     # Обновление
     all_sprites.update()
+    if player_health == 0:
+        running = False
+    # проверка столкновений
+    hits = pygame.sprite.spritecollide(player, enemies, True)
+    if hits:
+        player_health -= 1
     # Рендеринг
     screen.fill(BLACK)
     all_sprites.draw(screen)

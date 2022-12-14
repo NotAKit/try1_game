@@ -2,6 +2,9 @@ from helpers.helpers import *
 import pygame
 
 
+# Здоровье игрока (убрать потом отсюда)
+player_health = 5
+
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
